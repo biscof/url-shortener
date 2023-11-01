@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20231101-create-links-table
+      author: biscof
+      changes:
+        - createTable:
+            tableName:  links
+            columns:
+              - column:
+                  name:  id
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              -  column:
+                  name:  url
+                  type:  varchar(255)
+              -  column:
+                  name:  short_url
+                  type:  varchar(255)
+              - column:
+                  name: created_at
+                  type: timestamp
