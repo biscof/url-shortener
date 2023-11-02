@@ -22,3 +22,13 @@ databaseChangeLog:
               - column:
                   name: created_at
                   type: timestamp
+  - changeSet:
+      id: 20231102-add-request-count-column
+      author: biscof
+      changes:
+        - addColumn:
+            tableName: links
+            columns:
+              - column:
+                  name: request_count
+                  type: bigint
