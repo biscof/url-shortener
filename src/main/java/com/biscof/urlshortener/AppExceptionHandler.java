@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class AppExceptionHandler {
 
-    @ExceptionHandler({ LinkNotFoundException.class })
+    @ExceptionHandler(LinkNotFoundException.class)
     public ResponseEntity<Object> handleLinkNotFoundException(LinkNotFoundException exception) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }

@@ -10,5 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LinkResponseDto {
+
     private String shortLink;
+
 }
