@@ -12,16 +12,17 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 
+
 @Entity
 @Table(name = "links")
 @Getter
-@Setter
 @NoArgsConstructor
 public class Link {
 
     public Link(String url, String shortUrl) {
         this.url = url;
         this.shortUrl = shortUrl;
+        this.requestCount = 0;
     }
 
     @Id
@@ -31,6 +32,9 @@ public class Link {
     private String url;
 
     private String shortUrl;
+
+    @Setter
+    private int requestCount;
 
     @CreationTimestamp
     private Instant createdAt;
