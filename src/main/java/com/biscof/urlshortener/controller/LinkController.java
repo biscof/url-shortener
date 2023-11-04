@@ -4,9 +4,11 @@ import com.biscof.urlshortener.dto.LinkDto;
 import com.biscof.urlshortener.dto.LinkStatsDto;
 import com.biscof.urlshortener.service.LinkServiceImpl;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,11 +28,12 @@ public class LinkController {
 
     @PostMapping(path = "/generate")
     public ResponseEntity<Object> createShortLink(
-            @Validated @RequestBody LinkDto labelDto
+            @Valid @RequestBody LinkDto linkDto
     ) {
+
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(linkService.createShortLink(labelDto));
+                .body(linkService.createShortLink(linkDto));
     }
 
     @GetMapping(path = "/l/{shortUrl}")
