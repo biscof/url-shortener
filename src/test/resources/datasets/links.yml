@@ -1,0 +1,13 @@
+links:
+  - created_at: 2023-10-15T00:09:55.391179
+    url: https://example.com
+    short_url: h5Uik0NmQL
+    request_count: 3
+  - created_at: 2023-11-01T09:19:55.459132
+    url: https://test.com
+    short_url: jV46cTyjlP
+    request_count: 5
+  - created_at: 2023-09-18T15:39:01.323982
+    url: https://test.io
+    short_url: 4vNMU9fgcc
+    request_count: 2

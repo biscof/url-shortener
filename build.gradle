@@ -37,6 +37,8 @@ dependencies {
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.github.database-rider:rider-junit5:1.36.0'
+	testImplementation 'org.mockito:mockito-core:5.7.0'
 
 //	liquibaseRuntime (
 //			'org.liquibase:liquibase-core',
