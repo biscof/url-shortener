@@ -71,7 +71,9 @@ class LinkControllerTestIT {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentType(APPLICATION_JSON))
-                .andExpect(jsonPath("$.originalUrl").value(invalidUrlExceptionMsg));
+                .andExpect(jsonPath("$[0].code").value(400))
+                .andExpect(jsonPath("$[0].status").value("BAD_REQUEST"))
+                .andExpect(jsonPath("$[0].message").value(invalidUrlExceptionMsg));
     }
 
     @ParameterizedTest
@@ -84,7 +86,9 @@ class LinkControllerTestIT {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentType(APPLICATION_JSON))
-                .andExpect(jsonPath("$.originalUrl").value(invalidUrlExceptionMsg));
+                .andExpect(jsonPath("$[0].code").value(400))
+                .andExpect(jsonPath("$[0].status").value("BAD_REQUEST"))
+                .andExpect(jsonPath("$[0].message").value(invalidUrlExceptionMsg));
     }
 
     @Test
@@ -97,6 +101,19 @@ class LinkControllerTestIT {
                 .andExpect(redirectedUrl(link.getUrl()));
 
         assertEquals(4, link.getRequestCount());
+    }
+
+    @Test
+    void redirectToOriginalUrlInvalidShortUrl() throws Exception {
+        final String shortUrl = "invalid-url";
+        final String invalidUrlExceptionMsg = String.format("URL /l/%s not found.", shortUrl);
+
+        mockMvc.perform(get("/l/{shortUrl}", shortUrl))
+                .andExpect(status().isNotFound())
+                .andExpect(content().contentType(APPLICATION_JSON))
+                .andExpect(jsonPath("$.code").value(404))
+                .andExpect(jsonPath("$.status").value("NOT_FOUND"))
+                .andExpect(jsonPath("$.message").value(invalidUrlExceptionMsg));
     }
 
     @Test
