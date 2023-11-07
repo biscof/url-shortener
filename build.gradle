@@ -30,6 +30,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.liquibase:liquibase-core'
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
@@ -40,10 +41,6 @@ dependencies {
 	testImplementation 'com.github.database-rider:rider-junit5:1.36.0'
 	testImplementation 'org.mockito:mockito-core:5.7.0'
 
-//	liquibaseRuntime (
-//			'org.liquibase:liquibase-core',
-//			'org.liquibase.ext:liquibase-hibernate5:3.6',
-//	)
 }
 
 test {
