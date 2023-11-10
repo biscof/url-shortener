@@ -2,7 +2,7 @@ package com.biscof.urlshortener.controller;
 
 import com.biscof.urlshortener.dto.LinkDto;
 import com.biscof.urlshortener.dto.LinkStatsDto;
-import com.biscof.urlshortener.service.LinkServiceImpl;
+import com.biscof.urlshortener.service.impl.LinkServiceImpl;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
