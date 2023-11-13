@@ -5,7 +5,7 @@ spring:
     type: redis
   data:
     redis:
-      host: localhost
+      host: ${REDIS_HOST:localhost}
       port: 6379
   datasource:
     url: jdbc:h2:mem:app-db
@@ -20,7 +20,5 @@ spring:
         format_sql: true
     show-sql: true
     database: h2
-#    database-platform: org.hibernate.dialect.H2Dialect
-#    generate-ddl: true
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml

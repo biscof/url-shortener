@@ -60,11 +60,11 @@ public class LinkServiceImpl implements LinkService {
     @Override
     @Caching(
             cacheable = {
-                    @Cacheable(cacheNames = "originalUrls", key = "#shortUrl")
+                @Cacheable(cacheNames = "originalUrls", key = "#shortUrl")
             },
             evict = {
-                    @CacheEvict(cacheNames = "stat", key = "#shortUrl"),
-                    @CacheEvict(cacheNames = "stats"),
+                @CacheEvict(cacheNames = "stat", key = "#shortUrl"),
+                @CacheEvict(cacheNames = "stats"),
             }
     )
     public String getOriginalUrl(String shortUrl) {
