@@ -15,4 +15,12 @@ report:
 test:
 	./gradlew test
 
+start-app-with-redis:
+	docker-compose up -d
+
+start-app-in-container:
+	docker build -t url-shortener .
+	docker run url-shortener
+
+
 .PHONY: build
